@@ -53,8 +53,4 @@ console.log(greetings);
 
 //* Bottom type
 
-const getError = (msg: string): never => {
-  throw new Error(msg);
-};
-
-const x: null = getError("ABC");
+ 
