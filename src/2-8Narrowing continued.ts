@@ -18,7 +18,6 @@ printAll(["Tarek", "Rahim"]);
 printAll("Hello Tarek");
 printAll(null);
 
-
 //*Type Guard Type Narrowing
 const printsAll = (x: string | string[] | null) => {
   if (x != null) {
@@ -49,10 +48,40 @@ compare(2, 2);
 type Bird = { fly: () => void };
 type Fish = { swim: () => void };
 
-const move =(animal: Bird | Fish)=>{
-  if("fly" in animal){
-    animal.fly()
-    return
+const move = (animal: Bird | Fish) => {
+  if ("fly" in animal) {
+    animal.fly();
+    return;
   }
-  animal.swim()
+  animal.swim();
+};
+//* "instanceof" check
+const showDate = (x: Date | string) => {
+  if (x instanceof Date) {
+    console.log(x.toISOString());
+    return;
+  }
+  const date = new Date(x);
+  console.log(date.toISOString());
+};
+showDate("12-16-2026");
+
+//*Discriminated union
+interface Circle {
+  kind: "circle";
+  radius: number;
+}
+
+interface Square {
+  kind: "square";
+  sideLength: number;
+}
+
+const getArea = (shape: Circle | Square) =>{
+  if(shape.kind === "circle"){
+    console.log(shape.radius)
+  }
+  else{
+    console.log(shape.sideLength)
+  }
 }
