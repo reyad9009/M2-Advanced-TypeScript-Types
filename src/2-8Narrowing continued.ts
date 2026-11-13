@@ -18,29 +18,41 @@ printAll(["Tarek", "Rahim"]);
 printAll("Hello Tarek");
 printAll(null);
 
-const printsAll = (x: string | string[]| null)=>{
-  if(x != null){
-    if(typeof x === "object"){
-      for(let str of x){
+
+//*Type Guard Type Narrowing
+const printsAll = (x: string | string[] | null) => {
+  if (x != null) {
+    if (typeof x === "object") {
+      for (let str of x) {
         console.log(str);
       }
-      return
+      return;
     }
-    console.log(x)
-    return
+    console.log(x);
+    return;
   }
-  console.log("")
-}
+  console.log("");
+};
 printAll(["Tarek", "Rahman"]);
 printAll("Hello Tarek");
 printAll(null);
 
+//*Equality check
+const compare = (x: number | string, y: number | boolean) => {
+  if (x === y) {
+    console.log(x, y);
+  }
+};
+compare(2, 2);
 
+//* "in" operator
+type Bird = { fly: () => void };
+type Fish = { swim: () => void };
 
-//Equality
-const compare = (x: number | string, y: number| boolean)=>{
-    if (x===y){
-        console.log(x, y)
-    }
+const move =(animal: Bird | Fish)=>{
+  if("fly" in animal){
+    animal.fly()
+    return
+  }
+  animal.swim()
 }
-compare(2, 2)
