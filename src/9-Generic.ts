@@ -9,7 +9,6 @@ function printNumber(value: number): number {
   return value;
 }
 
-
 //With Generic
 function printValue<T>(value: T): T {
   return value;
@@ -20,9 +19,6 @@ console.log(printValue<string>("Tarek"));
 console.log(printValue<number>(100));
 
 console.log(printValue<boolean>(true));
-
-
-
 
 //* Problem 6
 const pluckValues = <T, K extends keyof T>(items: T[], key: K): T[K][] => {
